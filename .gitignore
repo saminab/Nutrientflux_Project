@@ -1,0 +1,14 @@
+*.cpg
+*.shp
+*.shx
+*.dbf
+/Particle_Tracking/codes/combined_gdf_Jan.dbf
+data/
+
+
+.cpg
+.shp
+.shx
+.dbf
+/Particle_Tracking/codes/combined_gdf_Jan.dbf
+data/
