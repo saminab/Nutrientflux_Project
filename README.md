@@ -1,4 +1,4 @@
-** pylag reqirements:**
+# pylag reqirements 
 step 1: NetCDf file
 *All input files must cotain a time variables with a units attributes that allows time converted to datetime objects
 * time in my data is float like "19322.041" and in pylag input is based on  "yy-m-d:s:ms" like this 2016-01-16T00:00:00.000000000
@@ -21,12 +21,12 @@ step 4: A run configuration file
 this file has some details about the data directories. Also pylag computes a set of interpolation weigths which we set in this file
 
 
-# FVCOME data 
+## FVCOME data 
 - file name order: MMDDHH_0001.nc where MM,DD,HH, indicate the Month, Day, and Hour, respectively, of the run time.
  - for forecasts, MDH indicates the time of initialization (i.e. forecast hour 0)
  - since nowcasts simulate the preceeding 12 hours, MDH in the filename indicates the LAST valid hour
  
- KML Files: 
+ ## KML Files: 
  =============
  - nodes.kml indicate spatial points which represent the FVCOME nodes in the model (variables represented on nodes)
  - elems.kml spatial polygones represent the FVCOME elements in the model (vector variables are stored on elements)
@@ -35,7 +35,7 @@ this file has some details about the data directories. Also pylag computes a set
 ######################################## Arc GIS preparation ########################################
 
 
-######################################### Python preparation ########################################
+# Python preparation
 1- to create initial position files I run the 1_Create_Initial_Position_multigroup.ipynb code 
 this code is reading the initial_position that we got from arch gis and for each group it makes a release zone 
 for each group id
