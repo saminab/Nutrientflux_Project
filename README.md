@@ -1,12 +1,34 @@
 # Nutrient Flux Project
 
-Following Directory is design to estimate Nutrient flux to Great Lake Huron 
+This notebook is part of a project designed to estimate nutrient flux to Lake Huron as a contribution to the Great Lakes nutrient management efforts.
 
-the Processes are in two main environment 
-1- Linux subsystem which all particle tracking process and indirect nutrient estimates are done in this environment
+## Workflow Overview:
 
-2- Window arcpy environment which is used to 
+The project processes are divided into two environments:
 
-## Direct Nutrient Load
-this Directory encompass two main process.
-1- Create coastal watershed: this code read the coastal wetlands that was obtained from MTRI team for 4 main Inundation, and Great lakes streams shape files
+1. **Linux Subsystem**:
+   - Used for particle tracking and indirect nutrient estimations.
+
+2. **Windows ArcPy Environment**:
+   - Facilitates geospatial analysis and watershed delineation tasks.
+
+## Focus: Direct Nutrient Load
+
+This notebook covers the **direct nutrient load estimation** process, which includes:
+
+### 1. Coastal Watershed Creation:
+- **Input Data**:
+  - Coastal wetlands shapefiles (from MTRI) representing four main inundation zones.
+  - Great Lakes basin streams and D8 flow direction data.
+- **Steps**:
+  1. Identify and separate streams draining directly to the coastal wetlands.
+  2. Use D8 flow direction to delineate watersheds for coastal wetlands.
+  3. Remove overlapping regions between coastal and stream watersheds for accuracy.
+
+### 2. Output:
+- Watershed shapefiles representing refined coastal watersheds.
+- Data ready for further analysis of nutrient loading pathways.
+
+This notebook plays a critical role in supporting the accurate quantification of direct nutrient loads to Lake Huron.
+
+---
