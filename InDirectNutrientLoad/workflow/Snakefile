@@ -1,7 +1,7 @@
 # snake make make this path for you 
 import glob
 OUTPUT_PATH = '/home/abolmaal/modelling/FVCOM/Huron/results/' 
-CW_PATH = '/home/abolmaal/Arcgis/NASAOceanProject/GIS_layer/Coastalwetland/hitshoreline/'
+CW_PATH = '/mnt/d/Users/abolmaal/Arcgis/NASAOceanProject/GIS_layer/Coastalwetland/hitshoreline/'
 # Set the directory of the FVCOM model outputs
 FVCOM_DIR = '/home/abolmaal/modelling/FVCOM/Huron/output'
 
