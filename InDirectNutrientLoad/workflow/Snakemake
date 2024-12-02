@@ -1,0 +1,57 @@
+# snake make make this path for you 
+import glob
+OUTPUT_PATH = '/home/abolmaal/modelling/FVCOM/Huron/results/' 
+CW_PATH = '/home/abolmaal/Arcgis/NASAOceanProject/GIS_layer/Coastalwetland/hitshoreline/'
+# Set the directory of the FVCOM model outputs
+FVCOM_DIR = '/home/abolmaal/modelling/FVCOM/Huron/output'
+
+rule all:
+    input:
+    # file name for Intersected FVCOM model output with coastal wetlands
+        OUTPUT_PATH + 'Intersections_Avg_PTCW.csv',
+        OUTPUT_PATH + 'Intersections_high_PTCW.csv',
+        OUTPUT_PATH + 'Intersections_low_PTCW.csv',
+        OUTPUT_PATH + 'Intersections_surge_PTCW.csv',
+
+    
+            ###################################################################
+        OUTPUT_PATH + 'group_id_counts.csv',
+        OUTPUT_PATH + 'Non_Intersection_avg.csv',
+        OUTPUT_PATH + 'Non_Intersection_high.csv',
+        OUTPUT_PATH + 'Non_Intersection_low.csv',
+        OUTPUT_PATH + 'Non_Intersection_surge.csv'
+rule PT_FirstIntersection:
+    input:
+        CW_PATH + 'Wetland_connected_avg_inundation_NAD1983_shorelineinteraction_50m_ExportFeatures.shp',
+        CW_PATH + 'Wetland_connected_high_inundation_NAD1983_shorelineinteraction_50m_ExportFeatures.shp',
+        CW_PATH + 'Wetland_connected_low_inundation_NAD1983_shorelineinteraction_50m_ExportFeatures.shp',
+        CW_PATH + 'Wetland_connected_surge_inundation_NAD1983_shorelineinteraction_50m_ExportFeatures.shp',
+
+        files = glob.glob(os.path.join(FVCOM_DIR, "updated_Fvcome_huron_estuary_2023_Winter_*.nc")),
+        grid_metrics_file_name = '/home/abolmaal/modelling/FVCOM/Huron/input/gridfile/grid_metrics_huron_senseflux_Seasonal_winter.nc',
+        Direct_Nutrient_load = '/mnt/d/Users/abolmaal/Arcgis/NASAOceanProject/ZonalStats/StreamWatresheds_total_N_P.csv',
+
+
+
+    output:
+        OUTPUT_PATH + 'Intersections_Avg_PTCW.csv',
+        OUTPUT_PATH + 'Intersections_high_PTCW.csv',
+        OUTPUT_PATH + 'Intersections_low_PTCW.csv',
+        OUTPUT_PATH + 'Intersections_surge_PTCW.csv',
+        OUTPUT_PATH + 'LakeHuronparticletracking_2023_original.shp',
+
+    
+            ###################################################################
+        OUTPUT_PATH + 'group_id_counts.csv',
+        OUTPUT_PATH + 'Non_Intersection_avg.csv',
+        OUTPUT_PATH + 'Non_Intersection_high.csv',
+        OUTPUT_PATH + 'Non_Intersection_low.csv',
+        OUTPUT_PATH + 'Non_Intersection_surge.csv'
+    conda:
+        'envs/pylag.yaml' 
+    notebook:
+        '../4_PT_FirstIntersection.ipynb'
+
+rule addgroup_number:
+    input:
+        files = glob.glob(FVCOM_DIR  + "/Fvcome_huron_estuary_2023_Winter_*.nc")
