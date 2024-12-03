@@ -1,0 +1,9 @@
+host: EES-HYDROTRACE
+Building DAG of jobs...
+MissingInputException in rule PT_FirstIntersection in file /home/abolmaal/Code/Nutrientflux_Project/InDirectNutrientLoad/workflow/Snakefile, line 23:
+Missing input files for rule PT_FirstIntersection:
+    output: /home/abolmaal/modelling/FVCOM/Huron/results/Intersections_Avg_PTCW.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Intersections_high_PTCW.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Intersections_low_PTCW.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Intersections_surge_PTCW.csv, /home/abolmaal/modelling/FVCOM/Huron/results/LakeHuronparticletracking_2023_original.shp, /home/abolmaal/modelling/FVCOM/Huron/results/group_id_counts.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Non_Intersection_avg.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Non_Intersection_high.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Non_Intersection_low.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Non_Intersection_surge.csv
+    affected files:
+        /mnt/d/Users/abolmaal/Arcgis/NASAOceanProject/GIS_layer/Coastalwetland/hitshoreline/Wetland_connected_low_inundation_NAD1983_shorelineinteraction_50m_ExportFeatures.shp
+        /mnt/d/Users/abolmaal/Arcgis/NASAOceanProject/GIS_layer/Coastalwetland/hitshoreline/Wetland_connected_high_inundation_NAD1983_shorelineinteraction_50m_ExportFeatures.shp
+        /mnt/d/Users/abolmaal/Arcgis/NASAOceanProject/GIS_layer/Coastalwetland/hitshoreline/Wetland_connected_surge_inundation_NAD1983_shorelineinteraction_50m_ExportFeatures.shp

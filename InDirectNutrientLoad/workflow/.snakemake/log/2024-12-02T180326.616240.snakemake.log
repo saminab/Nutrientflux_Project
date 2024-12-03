@@ -1,0 +1,39 @@
+host: EES-HYDROTRACE
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 24
+Rules claiming more threads will be scaled down.
+Conda environments: ignored
+Job stats:
+job                count
+---------------  -------
+addgroup_number        1
+total                  1
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Dec  2 18:03:26 2024]
+localrule addgroup_number:
+    input: /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_Apr__4.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_May__5.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_Mar__3.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_July__7.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_Nov__11.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_Dec__12.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_Jun__6.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_Oct__10.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_Jan__1.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_Sep__9.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_Aug__8.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_Feb__2.nc
+    output: /home/abolmaal/modelling/FVCOM/Huron/output/group_id_counts.csv
+    jobid: 0
+    reason: Missing output files: /home/abolmaal/modelling/FVCOM/Huron/output/group_id_counts.csv
+    resources: tmpdir=/tmp
+
+RuleException:
+WorkflowError in file /home/abolmaal/Code/Nutrientflux_Project/InDirectNutrientLoad/workflow/Snakefile, line 64:
+Failed to open source file /home/abolmaal/Code/Nutrientflux_Project/InDirectNutrientLoad/workflow/../4_addgroup_number.ipynb
+FileNotFoundError: [Errno 2] No such file or directory: '/home/abolmaal/Code/Nutrientflux_Project/InDirectNutrientLoad/workflow/../4_addgroup_number.ipynb'
+[Mon Dec  2 18:03:31 2024]
+Error in rule addgroup_number:
+    jobid: 0
+    input: /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_Apr__4.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_May__5.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_Mar__3.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_July__7.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_Nov__11.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_Dec__12.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_Jun__6.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_Oct__10.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_Jan__1.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_Sep__9.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_Aug__8.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/Fvcome_huron_estuary_2023_Winter_Feb__2.nc
+    output: /home/abolmaal/modelling/FVCOM/Huron/output/group_id_counts.csv
+    conda-env: /home/abolmaal/Code/Nutrientflux_Project/InDirectNutrientLoad/workflow/.snakemake/conda/104e5048fb65e2da9453c300155e095d_
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-12-02T180326.616240.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

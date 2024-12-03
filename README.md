@@ -25,10 +25,15 @@ This notebook covers the **direct nutrient load estimation** process, which incl
   2. Use D8 flow direction to delineate watersheds for coastal wetlands.
   3. Remove overlapping regions between coastal and stream watersheds for accuracy.
 
-### 2. Output:
+**Output Data**
 - Watershed shapefiles representing refined coastal watersheds.
 - Data ready for further analysis of nutrient loading pathways.
-
 This notebook plays a critical role in supporting the accurate quantification of direct nutrient loads to Lake Huron.
+### 2.ZonalStats notebook 
+The Zonal Stats code calculates spatial statistics for defined zones within the Great Lakes coastal watersheds. Using geospatial data, the script aggregates environmental and hydrological metrics, such as mean values, sums, and area-weighted averages, over each watershed. The key inputs include:
+
+Watershed zones derived from previous coastal watershed delineation.
+The outputs are tables or geospatial files containing the aggregated statistics, which can be used for further analysis of nutrient flux
+
 
 ---
