@@ -1,13 +1,15 @@
 # snake make make this path for you 
-import glob
 import os
-OUTPUT_PATH = '/home/abolmaal/modelling/FVCOM/Huron/results/' 
+import glob
+# Paths configuration
+OUTPUT_PATH = '/home/abolmaal/modelling/FVCOM/Huron/results/'
 CW_PATH = '/mnt/d/Users/abolmaal/Arcgis/NASAOceanProject/GIS_layer/Coastalwetland/hitshoreline/'
-# Set the directory of the FVCOM model outputs
+MODELLING_DIR = '/home/abolmaal/modelling/FVCOM/Huron/'
 FVCOM_DIR = '/home/abolmaal/modelling/FVCOM/Huron/output/'
 PYLAG_OUTPUT = '/home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/'
 DATA_DIR = '/home/abolmaal/Data/FVCOMEDATA/'
 INPUT_DIR = '/home/abolmaal/modelling/FVCOM/Huron/input/'
+
 rule all:
     input:
     # file name for Intersected FVCOM model output with coastal wetlands
@@ -23,6 +25,7 @@ rule all:
         OUTPUT_PATH + 'Non_Intersection_high.csv',
         OUTPUT_PATH + 'Non_Intersection_low.csv',
         OUTPUT_PATH + 'Non_Intersection_surge.csv'
+        
 rule PT_FirstIntersection:
     input:
         CW_PATH + 'Wetland_connected_avg_inundation_NAD1983_shorelineinteraction_50m_ExportFeatures.shp',
@@ -53,7 +56,7 @@ rule PT_FirstIntersection:
     conda:
         'envs/pylag.yaml' 
     notebook:
-        '../4_PT_FirstIntersection.ipynb'
+        '../4_PT_FirstInteraction.ipynb'
 
 rule addgroup_number:
     input:
@@ -63,19 +66,20 @@ rule addgroup_number:
     conda:
         'envs/pylag.yaml'
     notebook:
-        '../4_addgroup_number.ipynb'
+        '../3_addgroup_number.ipynb'
 
 rule PT_senseflux_intersectionpoint:
     input:
-        fvcom_file_name = os.path.join(DATA_DIR, '202301','nos.lmhofs.fields.n000.20230101.t00z.nc'),
-        obc_file_name = '/home/abolmaal/modelling/FVCOM/Huron/input/obc.dat',
-        # initial position of the particles
-        initial_position_file = f"{INPUT_DIR}/initial_position/initial_positions_releasezone_intersection_multigroup.dat",
-
-        # config file
-        config_file_name = '/home/abolmaal/modelling/FVCOM/Huron/config_files/Huron_Senseflux_Seasonal.cfg'
-        
+        fvcom_file_name=os.path.join(DATA_DIR, '202301', 'nos.lmhofs.fields.n000.20230101.t00z.nc'),
+        obc_file_name=MODELLING_DIR + 'input/obc.dat',
+        initial_position_file=INPUT_DIR + 'initial_position/initial_positions_releasezone_intersection_multigroup.dat',
+        config_file_name=MODELLING_DIR + 'config_files/Huron_Senseflux_Seasonal.cfg'
     output:
-        # The name of the output file containing the grid metrics
-            grid_metrics_file_name = f'{INPUT_DIR}/gridfile/grid_metrics_huron_senseflux_Seasonal_winter.nc',
-            
+        INPUT_DIR + 'gridfile/grid_metrics_huron_senseflux_Seasonal_winter.nc',
+        MODELLING_DIR + 'output/Fvcom_Huron_23_Sep_1.nc',
+        MODELLING_DIR + 'figures/initial_positions_LakeHuron_multigrouppoint_intersection.jpeg',
+        MODELLING_DIR + 'figures/Fvcom_Huron_23_Sep_1.png'
+    conda:
+        'envs/pylag.yaml'
+    notebook:
+        '/home/abolmaal/Code/Nutrientflux_Project/InDirectNutrientLoad/2_PT_senseflux_intersectpoint.ipynb'
