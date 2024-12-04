@@ -3,11 +3,12 @@ import os
 import glob
 # Paths configuration
 OUTPUT_PATH = '/home/abolmaal/modelling/FVCOM/Huron/results/'
-CW_PATH = '/mnt/d/Users/abolmaal/Arcgis/NASAOceanProject/GIS_layer/Coastalwetland/hitshoreline/'
+GIS_LAYERS  = 'home/abolmaal/Data/GIS_layers/'
+CW_PATH = os.path.join(GIS_LAYERS, 'Coastalwetland/hitshoreline/')
+#'/mnt/d/Users/abolmaal/Arcgis/NASAOceanProject/GIS_layer/Coastalwetland/hitshoreline/'
 MODELLING_DIR = '/home/abolmaal/modelling/FVCOM/Huron/'
-FVCOM_DIR = '/home/abolmaal/modelling/FVCOM/Huron/output/'
+FVCOM_DIR = '/home/abolmaal/Data/FVCOMEDATA/'
 PYLAG_OUTPUT = '/home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/'
-DATA_DIR = '/home/abolmaal/Data/FVCOMEDATA/'
 INPUT_DIR = '/home/abolmaal/modelling/FVCOM/Huron/input/'
 
 rule all:
@@ -68,17 +69,18 @@ rule addgroup_number:
     notebook:
         '../3_addgroup_number.ipynb'
 
+# Rule: PT_senseflux_intersectionpoint
 rule PT_senseflux_intersectionpoint:
     input:
-        fvcom_file_name=os.path.join(DATA_DIR, '202301', 'nos.lmhofs.fields.n000.20230101.t00z.nc'),
-        obc_file_name=MODELLING_DIR + 'input/obc.dat',
-        initial_position_file=INPUT_DIR + 'initial_position/initial_positions_releasezone_intersection_multigroup.dat',
-        config_file_name=MODELLING_DIR + 'config_files/Huron_Senseflux_Seasonal.cfg'
+        fvcom_file_name=os.path.join(FVCOM_DIR, '202301', 'nos.lmhofs.fields.n000.20230101.t00z.nc'),
+        obc_file_name=os.path.join(INPUT_DIR, 'obc.dat'),
+        initial_position_file=os.path.join(INPUT_DIR, 'initial_position', 'initial_positions_releasezone_intersection_multigroup.dat'),
+        config_file_name=os.path.join(MODELLING_DIR, 'config_files', 'Huron_Senseflux_Seasonal.cfg')
     output:
-        INPUT_DIR + 'gridfile/grid_metrics_huron_senseflux_Seasonal_winter.nc',
-        MODELLING_DIR + 'output/Fvcom_Huron_23_Sep_1.nc',
-        MODELLING_DIR + 'figures/initial_positions_LakeHuron_multigrouppoint_intersection.jpeg',
-        MODELLING_DIR + 'figures/Fvcom_Huron_23_Sep_1.png'
+        os.path.join(INPUT_DIR, 'gridfile', 'grid_metrics_huron_senseflux_Seasonal_winter.nc'),
+        os.path.join(MODELLING_DIR, 'output', 'Fvcom_Huron_23_Sep_1.nc'),
+        os.path.join(MODELLING_DIR, 'figures', 'initial_positions_LakeHuron_multigrouppoint_intersection.jpeg'),
+        os.path.join(MODELLING_DIR, 'figures', 'Fvcom_Huron_23_Sep_1.png')
     conda:
         'envs/pylag.yaml'
     notebook:
