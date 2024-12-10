@@ -11,5 +11,6 @@ dependencies:
   - netcdf4
   - jupyter
   - pip
+  - dask
   - pip:
       - /root/miniforge3/envs/pylag
