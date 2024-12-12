@@ -1,0 +1,10 @@
+site_name: Nutrientflux Project
+nav:
+  - Home: index.md
+  - Workflow: workflow.md
+  - Installation: Installation.md
+theme: readthedocs
+plugins:
+    - mkdocs-jupyter:
+            theme: dark
+    - search
