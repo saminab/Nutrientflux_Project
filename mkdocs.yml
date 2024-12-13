@@ -2,7 +2,9 @@ site_name: Nutrientflux Project
 nav:
   - Home: index.md
   - Workflow: workflow.md
+  - Main Project: NutrietnFluxProject.md
   - Installation: Installation.md
+  - Citiation: Citations.md
 theme: readthedocs
 plugins:
     - mkdocs-jupyter:
