@@ -1,7 +1,7 @@
 # Workflow
 Following is showing the work flow of Estimating Nutrient flux in two major step: 1- Direct Nutrient Load 2- Indirect Nutrient Load you can see the workflow
 
-![work flow](./images/DFD_saminabolmaali_completedone.jpg)
+![work flow](./images/DFD_saminabolmaali_completedone.jpeg)
 
 # Nutrientflux_Project
 # Nutrient Flux Project
@@ -30,10 +30,10 @@ Nutrient flux to coastal wetltands within one year
     
      Nitrogen flux 
 
-![average inundation](./images/WetLoadDistribution_AvgInun.png)
+![average inundation](./images/WetLoadDistribution_AvgInun_Nitrogen.jpeg)
 
      Phosphoropus flux
-![surge inundation](./images/WetLoadDistribution_AvgInun_ph.png)
+![Phosphoropus inundation](./images/WetLoadDistribution_AvgInun_ph.jpeg)
 
 ## Direct Nutrient Load
 This Directory encompass two main process.
