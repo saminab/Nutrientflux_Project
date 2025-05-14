@@ -1,0 +1,15 @@
+name: pylag
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - matplotlib
+  - cartopy
+  - xarray
+  - pandas
+  - netcdf4
+  - jupyter
+  - pip
+  - pip:
+      - /root/miniforge3/envs/pylag

@@ -1,0 +1,38 @@
+host: EES-HYDROTRACE
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 24
+Rules claiming more threads will be scaled down.
+Conda environments: ignored
+Job stats:
+job                               count
+------------------------------  -------
+PT_senseflux_intersectionpoint        1
+total                                 1
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Dec  3 14:53:50 2024]
+localrule PT_senseflux_intersectionpoint:
+    input: /home/abolmaal/Data/FVCOMEDATA/202301/nos.lmhofs.fields.n000.20230101.t00z.nc, /home/abolmaal/modelling/FVCOM/Huron/input/obc.dat, /home/abolmaal/modelling/FVCOM/Huron/input/initial_position/initial_positions_releasezone_intersection_multigroup.dat, /home/abolmaal/modelling/FVCOM/Huron/config_files/Huron_Senseflux_Seasonal.cfg
+    output: /home/abolmaal/modelling/FVCOM/Huron/input/gridfile/grid_metrics_huron_senseflux_Seasonal_winter.nc, /home/abolmaal/modelling/FVCOM/Huron/output/Fvcom_Huron_23_Apr__4.nc, /home/abolmaal/modelling/FVCOM/Huron/figures/initial_positions_LakeHuron_multigrouppoint_intersection.jpeg, /home/abolmaal/modelling/FVCOM/Huron/figures/Fvcom_Huron_23_Sep_10.png
+    jobid: 0
+    reason: Missing output files: /home/abolmaal/modelling/FVCOM/Huron/figures/Fvcom_Huron_23_Sep_10.png, /home/abolmaal/modelling/FVCOM/Huron/figures/initial_positions_LakeHuron_multigrouppoint_intersection.jpeg, /home/abolmaal/modelling/FVCOM/Huron/input/gridfile/grid_metrics_huron_senseflux_Seasonal_winter.nc, /home/abolmaal/modelling/FVCOM/Huron/output/Fvcom_Huron_23_Apr__4.nc
+    resources: tmpdir=/tmp
+
+RuleException:
+CalledProcessError in file /home/abolmaal/Code/Nutrientflux_Project/InDirectNutrientLoad/workflow/Snakefile, line 88:
+Command 'set -euo pipefail;  jupyter-nbconvert --log-level ERROR --execute --output '/tmp/tmpxnotor8r/notebook.ipynb' --to notebook --ExecutePreprocessor.timeout=-1 /home/abolmaal/Code/Nutrientflux_Project/InDirectNutrientLoad/workflow/.snakemake/scripts/tmp4sn90jcl.2_PT_senseflux_intersectpoint.ipynb' returned non-zero exit status 1.
+[Tue Dec  3 14:54:04 2024]
+Error in rule PT_senseflux_intersectionpoint:
+    jobid: 0
+    input: /home/abolmaal/Data/FVCOMEDATA/202301/nos.lmhofs.fields.n000.20230101.t00z.nc, /home/abolmaal/modelling/FVCOM/Huron/input/obc.dat, /home/abolmaal/modelling/FVCOM/Huron/input/initial_position/initial_positions_releasezone_intersection_multigroup.dat, /home/abolmaal/modelling/FVCOM/Huron/config_files/Huron_Senseflux_Seasonal.cfg
+    output: /home/abolmaal/modelling/FVCOM/Huron/input/gridfile/grid_metrics_huron_senseflux_Seasonal_winter.nc, /home/abolmaal/modelling/FVCOM/Huron/output/Fvcom_Huron_23_Apr__4.nc, /home/abolmaal/modelling/FVCOM/Huron/figures/initial_positions_LakeHuron_multigrouppoint_intersection.jpeg, /home/abolmaal/modelling/FVCOM/Huron/figures/Fvcom_Huron_23_Sep_10.png
+    conda-env: /home/abolmaal/Code/Nutrientflux_Project/InDirectNutrientLoad/workflow/.snakemake/conda/104e5048fb65e2da9453c300155e095d_
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-12-03T145350.034656.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

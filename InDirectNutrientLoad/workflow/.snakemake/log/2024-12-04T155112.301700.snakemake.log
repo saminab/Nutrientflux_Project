@@ -1,0 +1,30 @@
+host: EES-HYDROTRACE
+Building DAG of jobs...
+Creating conda environment envs/pylag.yaml...
+Downloading and installing remote packages.
+CreateCondaEnvironmentException:
+Could not create conda environment from /home/abolmaal/Code/Nutrientflux_Project/InDirectNutrientLoad/workflow/envs/pylag.yaml:
+Command:
+conda env create --quiet --no-default-packages --file "/home/abolmaal/Code/Nutrientflux_Project/InDirectNutrientLoad/workflow/.snakemake/conda/c72b716e0731296f229ac2ba12829b49_.yaml" --prefix "/home/abolmaal/Code/Nutrientflux_Project/InDirectNutrientLoad/workflow/.snakemake/conda/c72b716e0731296f229ac2ba12829b49_"
+Output:
+Channels:
+ - conda-forge
+ - defaults
+ - JimClark
+ - Samin
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working... failed
+
+CondaHTTPError: HTTP 500 INTERNAL SERVER ERROR for url <https://repo.anaconda.com/pkgs/main/linux-64/repodata.json>
+Elapsed: 00:06.330292
+CF-RAY: 8eceac808d99a945-DTW
+
+A remote server error occurred when trying to retrieve this URL.
+
+A 500-type error (e.g. 500, 501, 502, 503, etc.) indicates the server failed to
+fulfill a valid request.  The problem may be spurious, and will resolve itself if you
+try your request again.  If the problem persists, consider notifying the maintainer
+of the remote server.
+
+
+

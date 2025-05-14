@@ -1,0 +1,38 @@
+host: EES-HYDROTRACE
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 24
+Rules claiming more threads will be scaled down.
+Conda environments: ignored
+Job stats:
+job                     count
+--------------------  -------
+PT_FirstIntersection        1
+total                       1
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Dec  9 16:19:16 2024]
+localrule PT_FirstIntersection:
+    input: /home/abolmaal/Data/GIS_layer/Coastalwetland/hitshoreline/Wetland_connected_avg_inundation_NAD1983_shorelineinteraction_50m_ExportFeatures.shp, /home/abolmaal/Data/GIS_layer/Coastalwetland/hitshoreline/wetlands_connected_low_inundation_NAD1983_shorelineinteraction_50m_ExportFeatures.shp, /home/abolmaal/Data/GIS_layer/Coastalwetland/hitshoreline/wetlands_connected_high_inundation_NAD1983_shorelineinteraction_50m_ExportFeatures.shp, /home/abolmaal/Data/GIS_layer/Coastalwetland/hitshoreline/wetlands_connected_surge_inundation_NAD1983_shorelineinteraction_50m_ExportFeatures.shp, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_May__5.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_Mar__3.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_Jan__1.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_Oct__10.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_Feb__2.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_Dec__12.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_Apr__4.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_July__7.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_Sep__9.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_Jun__6.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_Nov__11.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_Aug__8.nc, /home/abolmaal/modelling/FVCOM/Huron/input/gridfile/grid_metrics_huron_senseflux_Seasonal.nc, /mnt/d/Users/abolmaal/Arcgis/NASAOceanProject/ZonalStats/StreamWatresheds_total_N_P.csv
+    output: /home/abolmaal/modelling/FVCOM/Huron/results/Intersections_Avg_PTCW.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Intersections_high_PTCW.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Intersections_low_PTCW.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Intersections_surge_PTCW.csv, /home/abolmaal/modelling/FVCOM/Huron/results/LakeHuronparticletracking_2023_original.shp, /home/abolmaal/modelling/FVCOM/Huron/results/group_id_counts.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Non_Intersection_avg.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Non_Intersection_high.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Non_Intersection_low.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Non_Intersection_surge.csv
+    jobid: 0
+    reason: Missing output files: /home/abolmaal/modelling/FVCOM/Huron/results/group_id_counts.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Non_Intersection_avg.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Non_Intersection_surge.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Non_Intersection_low.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Non_Intersection_high.csv, /home/abolmaal/modelling/FVCOM/Huron/results/LakeHuronparticletracking_2023_original.shp
+    resources: tmpdir=/tmp
+
+RuleException:
+CalledProcessError in file /home/abolmaal/Code/Nutrientflux_Project/InDirectNutrientLoad/workflow/Snakefile, line 66:
+Command 'set -euo pipefail;  jupyter-nbconvert --log-level ERROR --execute --output '/tmp/tmpvdaxuqk0/notebook.ipynb' --to notebook --ExecutePreprocessor.timeout=-1 /home/abolmaal/Code/Nutrientflux_Project/InDirectNutrientLoad/.snakemake/scripts/tmpusji_wkq.4_PT_FirstInteraction.ipynb' returned non-zero exit status 1.
+[Mon Dec  9 16:19:35 2024]
+Error in rule PT_FirstIntersection:
+    jobid: 0
+    input: /home/abolmaal/Data/GIS_layer/Coastalwetland/hitshoreline/Wetland_connected_avg_inundation_NAD1983_shorelineinteraction_50m_ExportFeatures.shp, /home/abolmaal/Data/GIS_layer/Coastalwetland/hitshoreline/wetlands_connected_low_inundation_NAD1983_shorelineinteraction_50m_ExportFeatures.shp, /home/abolmaal/Data/GIS_layer/Coastalwetland/hitshoreline/wetlands_connected_high_inundation_NAD1983_shorelineinteraction_50m_ExportFeatures.shp, /home/abolmaal/Data/GIS_layer/Coastalwetland/hitshoreline/wetlands_connected_surge_inundation_NAD1983_shorelineinteraction_50m_ExportFeatures.shp, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_May__5.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_Mar__3.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_Jan__1.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_Oct__10.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_Feb__2.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_Dec__12.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_Apr__4.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_July__7.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_Sep__9.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_Jun__6.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_Nov__11.nc, /home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/updated_Fvcome_huron_estuary_2023_Winter_Aug__8.nc, /home/abolmaal/modelling/FVCOM/Huron/input/gridfile/grid_metrics_huron_senseflux_Seasonal.nc, /mnt/d/Users/abolmaal/Arcgis/NASAOceanProject/ZonalStats/StreamWatresheds_total_N_P.csv
+    output: /home/abolmaal/modelling/FVCOM/Huron/results/Intersections_Avg_PTCW.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Intersections_high_PTCW.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Intersections_low_PTCW.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Intersections_surge_PTCW.csv, /home/abolmaal/modelling/FVCOM/Huron/results/LakeHuronparticletracking_2023_original.shp, /home/abolmaal/modelling/FVCOM/Huron/results/group_id_counts.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Non_Intersection_avg.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Non_Intersection_high.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Non_Intersection_low.csv, /home/abolmaal/modelling/FVCOM/Huron/results/Non_Intersection_surge.csv
+    conda-env: /home/abolmaal/Code/Nutrientflux_Project/InDirectNutrientLoad/.snakemake/conda/6b709fd2c7b288789584a5db0ecd58eb_
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-12-09T161916.089847.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.
