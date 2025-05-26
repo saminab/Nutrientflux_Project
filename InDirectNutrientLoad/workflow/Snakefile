@@ -9,6 +9,7 @@ FVCOM_DIR = '/home/abolmaal/Data/FVCOMEDATA/'
 PYLAG_OUTPUT = '/home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/'
 INPUT_DIR = '/home/abolmaal/modelling/FVCOM/Huron/input/'
 OUTPUT_PATH = '/home/abolmaal/modelling/FVCOM/Huron/results/'
+
 # Define months for generating output filenames
 months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
