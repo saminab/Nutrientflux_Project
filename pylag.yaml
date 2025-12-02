@@ -297,7 +297,6 @@ dependencies:
   - minizip=4.0.6=h9d307f2_0
   - mistune=3.0.2=pyhd8ed1ab_0
   - mpg123=1.32.6=h59595ed_0
-  - mpi=1.0=openmpi
   - mpi4py=3.1.6=py311h531f096_1
   - msgpack-python=1.0.8=py311h52f7536_0
   - multipledispatch=0.6.0=pyhd8ed1ab_1
@@ -329,7 +328,6 @@ dependencies:
   - numpy=1.26.4=py311h64a7726_0
   - numpy_groupies=0.11.1=pyhd8ed1ab_0
   - openjpeg=2.5.2=h488ebb8_0
-  - openmpi=5.0.3=hfd7b305_105
   - openssl=3.3.2=hb9d3cd8_0
   - orc=2.0.1=h17fec99_1
   - overrides=7.7.0=pyhd8ed1ab_0
