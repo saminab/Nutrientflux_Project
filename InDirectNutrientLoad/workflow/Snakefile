@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import os
 import glob
 # Paths configuration
@@ -93,4 +94,102 @@ rule PT_senseflux_intersectionpoint:
     conda:
         'envs/pylag.yaml'
     notebook:
+=======
+import os
+import glob
+# Paths configuration
+GIS_LAYERS = '/home/abolmaal/Data/GIS_layer'  # Add leading slash to make it an absolute path
+CW_PATH = os.path.join(GIS_LAYERS, 'Coastalwetland', 'hitshoreline')
+
+MODELLING_DIR = '/home/abolmaal/modelling/FVCOM/Huron/'
+FVCOM_DIR = '/home/abolmaal/Data/FVCOMEDATA/'
+PYLAG_OUTPUT = '/home/abolmaal/modelling/FVCOM/Huron/output/monthly_output/'
+INPUT_DIR = '/home/abolmaal/modelling/FVCOM/Huron/input/'
+OUTPUT_PATH = '/home/abolmaal/modelling/FVCOM/Huron/results/'
+
+# Define months for generating output filenames
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+# Generate the output filenames dynamically based on the months
+output_files = [
+    os.path.join(MODELLING_DIR, 'output', f'updated_Fvcom_Huron_23_{month}__{index+1}.nc')
+    for index, month in enumerate(months)
+]
+# Add the December/January file manually if it's part of the pattern
+output_files.append(os.path.join(MODELLING_DIR, 'output', 'updated_Fvcom_Huron_23_DecJan_1.nc'))
+
+# Rule to generate the final output files
+rule all:
+    input:
+        os.path.join(OUTPUT_PATH, 'Intersections_Avg_PTCW.csv'),
+        os.path.join(OUTPUT_PATH, 'Intersections_high_PTCW.csv'),
+        os.path.join(OUTPUT_PATH, 'Intersections_low_PTCW.csv'),
+        os.path.join(OUTPUT_PATH, 'Intersections_surge_PTCW.csv'),
+        os.path.join(OUTPUT_PATH, 'group_id_counts.csv'),
+        os.path.join(OUTPUT_PATH, 'First_Intersection_avg.csv'),
+        os.path.join(OUTPUT_PATH, 'First_Intersection_high.csv'),
+        os.path.join(OUTPUT_PATH, 'First_Intersection_low.csv'),
+        os.path.join(OUTPUT_PATH, 'First_Intersection_surge.csv')
+
+rule PT_FirstIntersection:
+    input:
+        # Coastal wetland shapefiles
+        CW_avg_path = os.path.join(CW_PATH, 'Wetland_connected_avg_inundation_NAD1983_shorelineinteraction_50m_ExportFeatures.shp'),
+        CW_low_path = os.path.join(CW_PATH, 'wetlands_connected_low_inundation_NAD1983_shorelineinteraction_50m_ExportFeatures.shp'),
+        CW_high_path = os.path.join(CW_PATH, 'wetlands_connected_high_inundation_NAD1983_shorelineinteraction_50m_ExportFeatures.shp'),
+        CW_surge_path = os.path.join(CW_PATH, 'wetlands_connected_surge_inundation_NAD1983_shorelineinteraction_50m_ExportFeatures.shp'),
+        # NetCDF files from FVCOM
+        fvcom_files = glob.glob(os.path.join(PYLAG_OUTPUT, "updated_Fvcome_huron_estuary_2023_Winter_*.nc")),
+        # FVCOM grid metrics file
+        grid_metrics_file_name = glob.glob(os.path.join(INPUT_DIR, 'gridfile', 'grid_metrics_huron_senseflux_Seasonal.nc'))[0],  # Select the first file if there's only one
+        
+        # Nutrient load data CSV
+        Direct_Nutrient_load = '/mnt/d/Users/abolmaal/Arcgis/NASAOceanProject/ZonalStats/StreamWatresheds_total_N_P.csv',
+        
+    output:
+        # Define the output files
+        os.path.join(OUTPUT_PATH, 'Intersections_Avg_PTCW.csv'),
+        os.path.join(OUTPUT_PATH, 'Intersections_high_PTCW.csv'),
+        os.path.join(OUTPUT_PATH, 'Intersections_low_PTCW.csv'),
+        os.path.join(OUTPUT_PATH, 'Intersections_surge_PTCW.csv'),
+        os.path.join(OUTPUT_PATH, 'LakeHuronparticletracking_2023_original.shp'),
+        os.path.join(OUTPUT_PATH, 'group_id_counts.csv'),
+        os.path.join(OUTPUT_PATH, 'Non_Intersection_avg.csv'),
+        os.path.join(OUTPUT_PATH, 'Non_Intersection_high.csv'),
+        os.path.join(OUTPUT_PATH, 'Non_Intersection_low.csv'),
+        os.path.join(OUTPUT_PATH, 'Non_Intersection_surge.csv')
+    conda:
+        'envs/pylag.yaml'  # Ensure that your conda environment is set up correctly
+    notebook:
+        '/home/abolmaal/Code/Nutrientflux_Project/InDirectNutrientLoad/4_PT_FirstInteraction.ipynb'  # Path to the Jupyter notebook
+# Rule to process and update the NetCDF files
+rule addgroup_number:
+    input:
+        # Input NetCDF files from PYLAG_OUTPUT
+        files = glob.glob(os.path.join(PYLAG_OUTPUT, "Fvcom_Huron_23_*.nc"))
+    output:
+        # Pass dynamically generated list of output files as output
+        output_files,
+        # Define the path for group_id_counts.csv as another output
+        os.path.join(MODELLING_DIR, 'output', 'group_id_counts.csv')
+    conda:
+        'envs/pylag.yaml'  # Ensure your Conda environment is correctly set up
+    notebook:
+        '/home/abolmaal/Code/Nutrientflux_Project/InDirectNutrientLoad/3_addgroup_number.ipynb'  # Path to the Jupyter notebook
+# Rule: PT_senseflux_intersectionpoint
+rule PT_senseflux_intersectionpoint:
+    input:
+        fvcom_file_name=os.path.join(FVCOM_DIR, '202301', 'nos.lmhofs.fields.n000.20230101.t00z.nc'),
+        obc_file_name=os.path.join(INPUT_DIR, 'obc.dat'),
+        initial_position_file=os.path.join(INPUT_DIR, 'initial_position', 'initial_positions_releasezone_intersection_multigroup.dat'),
+        config_file_name=os.path.join(MODELLING_DIR, 'config_files', 'Huron_Senseflux_Seasonal.cfg')
+    output:
+        os.path.join(INPUT_DIR, 'gridfile', 'grid_metrics_huron_senseflux_Seasonal_winter.nc'),
+        os.path.join(MODELLING_DIR, 'output', 'Fvcom_Huron_23_Sep_1.nc'),
+        os.path.join(MODELLING_DIR, 'figures', 'initial_positions_LakeHuron_multigrouppoint_intersection.jpeg'),
+        os.path.join(MODELLING_DIR, 'figures', 'Fvcom_Huron_23_Sep_1.png')
+    conda:
+        'envs/pylag.yaml'
+    notebook:
+>>>>>>> 2964babdb757cc660f840cc8280ceee2dbed7350
         '/home/abolmaal/Code/Nutrientflux_Project/InDirectNutrientLoad/2_PT_senseflux_intersectpoint.ipynb'
